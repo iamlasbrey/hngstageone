@@ -1,6 +1,6 @@
 export const myList = [
-    {   id: 1,
-        name: "Twitter Link"
+    {   id: "twitter",
+        name: "iamlasbrey"
     },
     {   id: 2,
         name: "Zuri Team"
@@ -14,7 +14,8 @@ export const myList = [
     {   id: 5,
         name: "Background Check for Coders"
     },
-    {   id: 6,
-        name: "Design Books"
+    {   id: "book__design",
+        name: "Design Books",
+        link: "https://books.zuri.team/design-rules"
     },
 ]

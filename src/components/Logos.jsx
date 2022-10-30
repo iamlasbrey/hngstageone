@@ -6,7 +6,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     font-family: 'Inter', sans-serif;
-    margin: 3em 0px 8em 0px;
+    margin: 3em 0px 7em 0px;
 `
 
 const Elements = styled.ul`
@@ -15,25 +15,30 @@ const Elements = styled.ul`
     align-items: center;
 `
 
-const Element = styled.li`
-margin-right: 30px;
-`
-
 const Image = styled.img``
+
+const Anchor = styled.a`
+    cursor: pointer;
+    margin-right: 30px;
+`
 
 const Logos = () => {
     return (
         <Container>
             <Elements>
-                <Element>
+                <Anchor href="/#"> 
                     <Image src="https://res.cloudinary.com/iamlasbrey/image/upload/v1667086397/hng9/firststask/slackslack_x6cahu.png"/>
-                </Element>
-                <Element>
+                </Anchor>
+
+                <Anchor id="slack" href="https://github.com/iamlasbrey/hngstageone" target="_blank" rel="noopener noreferrer"> 
                     <Image src="https://res.cloudinary.com/iamlasbrey/image/upload/v1667086307/hng9/firststask/Icongithun_cucwct.png"/>
-                </Element>
+                </Anchor>
+
             </Elements>
         </Container>
     )
 }
 
 export default Logos
+
+//https://github.com/iamlasbrey/hngstageone

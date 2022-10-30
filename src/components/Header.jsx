@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 const Container = styled.div`
-    margin-top: 2em;
     font-family: 'Inter', sans-serif;
     display: flex;
     align-items: center;
@@ -20,6 +19,10 @@ const Element = styled.div`
 
 const Image = styled.img`
     margin-bottom: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100px;
 `
 
 const Name = styled.h3`
@@ -32,10 +35,10 @@ const Header = () => {
     return (
         <Container>
             <Element>
-            <Image src="https://res.cloudinary.com/iamlasbrey/image/upload/v1667067303/hng9/firststask/profile__imgwoman_image_zpjjje.png"/>
+            <Image src="https://res.cloudinary.com/iamlasbrey/image/upload/v1667090425/hng9/firststask/ad855e9890011972fe6e3c997e5a3985_kpea2c.jpg"id="profile__img"/>
 
             <Name>
-                Annette Black
+                Uzoma Kenkwo
             </Name>
 
             </Element>
