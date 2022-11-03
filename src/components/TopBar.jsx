@@ -18,7 +18,6 @@ const Element = styled.div`
 `
 
 const Image = styled.img``
-
 const TopBar = () => {
     return (
         <Container>

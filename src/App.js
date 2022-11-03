@@ -1,17 +1,20 @@
 import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Listings from "./components/Listings";
-import Logos from "./components/Logos";
-import TopBar from "./components/TopBar";
+
+import {
+  BrowserRouter as Router, Routes, Route
+} from 'react-router-dom'
+import Homepage from "./pages/Homepage";
+
 
 function App() {
   return (
     <>
-      <TopBar />
-      <Header />
-      <Listings />
-      <Logos />
-      <Footer />
+    <Router>
+        <Routes>
+        <Route path='/' element={<Homepage /> }/>
+        </Routes>
+        <Footer />
+      </Router>
     </>
   );
 }
