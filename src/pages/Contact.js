@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { useState } from 'react'
+import {Navigate} from 'react-router-dom'
 
 const Container = styled.div`
     display: flex;
@@ -56,6 +58,10 @@ const TheInput = styled.input`
     border-radius: 8px;
     padding: 8px 0px 8px 8px;
     color: #667085;
+
+    &:focus {
+        outline: 1px solid #B2DDFF;
+    }
 `
 const FirstTheInput = styled.input`
     width: 100%;
@@ -65,6 +71,10 @@ const FirstTheInput = styled.input`
     border-radius: 8px;
     padding: 8px 0px 8px 8px;
     color: #667085;
+    
+    &:focus {
+        outline: 1px solid #B2DDFF;
+    }
 
     @media(max-width: 500px) {
         margin-bottom: 10px;
@@ -96,24 +106,33 @@ const SecondInput = styled.input`
     padding: 8px 0px 8px 8px;
     color: #667085;
     margin-top: 10px;
+
+    &:focus {
+        outline: 1px solid #B2DDFF;
+    }
 `
 
 const ThirdinputDiv = styled.div`
     width: 100%;
+    margin-top: 10px;
+    margin-bottom: 40px;
 `
 
 const ThirdInput = styled.textarea`
     resize: none;
     width:100%;
     font-size: 16px;
-    border: 1px solid #D0D5DD;
+    border: ${props => props.messageError ? "1px solid red" : "1px solid #D0D5DD"};
     box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
     border-radius: 8px;
     padding: 8px 0px 8px 8px;
     color: #667085;
-    margin-top: 10px;
-    margin-bottom: 30px;
     font-family: 'Inter', sans-serif;
+    margin-top: 10px;
+
+    &:focus {
+        outline: 1px solid #B2DDFF;
+    }
 `
 
 const FourthinputDiv = styled.div`
@@ -141,45 +160,134 @@ const SendMessage = styled.button`
     box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
     border-radius: 8px;
     color: white;
+    cursor: pointer;
+`
+
+const SendMessageDis = styled.button`
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    padding: 12px 20px;
+    background: #B2DDFF;
+    border: 1px solid #B2DDFF;
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    border-radius: 8px;
+    color: white;
+    cursor: auto;
+`
+
+const MyError = styled.p`
+    color: red;
+    font-size: 14px;
 `
 
 const Contact = () => {
+
+    const [firstname, setFirstName] = useState('')
+    const [lastname, setLastName] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
+    const [isChecked, setisChecked] = useState(false)
+    const [firstError, setFirstError] = useState(false)
+    const [lastError, setLastError] = useState(false)
+    const [emailError, setEmailError] = useState(false)
+    const [messageError, setMessageError] = useState(false)
+        
+    const handleFirstName=(e)=>{ setFirstName(e.target.value)}
+    const handleLastName=(e)=>{ setLastName(e.target.value)}
+    const handleEmail=(e)=>{ setEmail(e.target.value)}
+    const handleMessage=(e)=>{ setMessage(e.target.value)}
+
+    
+    const onSubmit=(e)=>{
+        e.preventDefault()
+        if(!firstname)setFirstError(true)
+        if(!lastname) setLastError(true)
+        if(!email) setEmailError(true)
+        if(!message) setMessageError(true)
+
+        alert(`Thanks for submitting`)
+    }
+
     return (
         <Container>
             <Element>
                 <Title> Contact Me </Title>
                 <Description> Hi there, contact me to ask me about anything you have in mind.</Description>
-                <MyForm>
+                <MyForm onSubmit = {onSubmit}>
                     <FirstLast>
                         <First>
                             <Label> First Name </Label>
-                            <FirstTheInput id='first_name' placeholder='Enter your first_name' />
+                            <FirstTheInput id='first_name' 
+                            placeholder='Enter your first name'
+                            name= 'firstname' 
+                            value={firstname}
+                            onChange={handleFirstName}
+                            />
+                            {
+                                firstError && <MyError> Please enter a first name</MyError>
+                            }
+                            
                         </First>
 
                         <First>
                             <Label> Last Name </Label>
-                            <TheInput placeholder='Enter your last name' id='last_name'/>
+                            <TheInput 
+                            placeholder='Enter your last name' id='last_name'
+                            name= 'lastname' 
+                            value={lastname}
+                            onChange={handleLastName}
+                            />
+                            {                       
+                                lastError && <MyError> Please enter a last name</MyError>
+                            }
                         </First> 
                     </FirstLast>
                         
                     <SecondinputDiv>
                             <Label> Email </Label>
-                            <SecondInput id='email'/>
+                            <SecondInput id='email'
+                            placeholder='yourname@email.com'
+                            name= 'email' 
+                            value={email}
+                            onChange={handleEmail}
+                            />
+
+                            {                       
+                                emailError && <MyError> Please enter a valid email address </MyError>
+                            }
                     </SecondinputDiv>
 
                     <ThirdinputDiv>
-                            <Label> First Name </Label>
-                            <ThirdInput id='message' cols="2" rows="10" placeholder='Send me a message and I will reply you as soon as possible...'/>
+                            <Label> Message </Label>
+                            <ThirdInput 
+                            messageError={messageError}
+                            id='message' cols="2" rows="10" 
+                            placeholder='Send me a message and I will reply you as soon as possible...'
+                            name= 'message' 
+                            value={message}
+                            onChange={handleMessage}
+                            />
+
+                            {
+                                messageError && <MyError> Please enter a message </MyError>
+                            }
+                            
                     </ThirdinputDiv>
 
                     <FourthinputDiv>
-                            <MyCheck type='checkbox'/>
+                            <MyCheck type='checkbox' checked={isChecked} onChange={()=>setisChecked((prev)=> !prev)}
+                            />
                             <Agreement>You agree to providing your data to Uzoma Kenkwo  who may contact you.</Agreement>
                     </FourthinputDiv>
 
-                    <SendMessage id='btn__submi'>
-                        Send Mesage
-                    </SendMessage>
+                    {
+                        isChecked ? <SendMessage id='btn__submit'>Send Message</SendMessage> : <SendMessageDis disabled id='btn__submit'>
+                        Send Message
+                    </SendMessageDis>
+                    }
+
+                    
 
                 </MyForm>
             </Element>
