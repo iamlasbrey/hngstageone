@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import {Link} from 'react-router-dom'
+
 const Container = styled.div`
     display: flex;
     align-items: center;
@@ -67,6 +69,14 @@ const Listings = () => {
                     Design Books 
                 <Small>Downloand our all in one free design resource for new and experienced designers. </Small>
                 </Anchor>
+
+                <Anchor id="contact"> 
+                    <Link to='/contact'>
+                        Contact Me 
+                    </Link>
+                </Anchor>
+            
+
             </Items>
             </Element>
         </Container>

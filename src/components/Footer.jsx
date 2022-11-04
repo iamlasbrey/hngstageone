@@ -5,6 +5,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     margin-bottom: 3em;
+    font-family: 'Inter', sans-serif;
 `
 
 const Element = styled.div`

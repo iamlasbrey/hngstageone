@@ -4,12 +4,12 @@ import Listings from '../components/Listings'
 import Logos from '../components/Logos'
 
 
-const Homepage = () => {
+const Homepage = () => {                             
     return (
         <>
             <TopBar />
-            <Header />
-            <Listings />
+                <Header />
+                <Listings />
             <Logos />
         </>
     )
