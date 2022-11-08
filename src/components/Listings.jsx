@@ -18,7 +18,7 @@ const Items = styled.div`
     flex-direction:column;
     `
 
-const Anchor = styled.a`
+const Anchor = styled.button`
     background: #EAECF0;
     border: 1px solid #EAECF0;
     border-radius: 8px;
@@ -42,32 +42,44 @@ const Listings = () => {
             <Element>
             <Items>
 
-            <Anchor id="twitter" href="http://twitter.com/iamlasbrey" target="_blank" rel="noopener noreferrer"> 
+            <Anchor id="twitter" >
+                    <a href="http://twitter.com/iamlasbrey" target="_blank" rel="noopener noreferrer">
                     Twitter Link
+                    </a>
                 </Anchor>
 
-                <Anchor id="btn__zuri" href="https://training.zuri.team/" target="_blank" rel="noopener noreferrer"> 
+                <Anchor id="btn__zuri"> 
+                    <a href="https://training.zuri.team/" target="_blank" rel="noopener noreferrer">
                     Zuri Team
+                    </a>
                 </Anchor>
                 
-                <Anchor id="books" href="http://books.zuri.team" target="_blank" rel="noopener noreferrer"> 
+                <Anchor id="books"> 
+                    <a href="http://books.zuri.team" target="_blank" rel="noopener noreferrer">
                     Zuri Books
                 <Small>Modern and comprehensive books for your design and development skill up</Small>
+                    </a>
                 </Anchor>
 
-                <Anchor id="book__python" href="https://books.zuri.team/python-for-beginners?ref_id=<iamlasbrey>" target="_blank" rel="noopener noreferrer"> 
+                <Anchor id="book__python"> 
+                    <a href="https://books.zuri.team/python-for-beginners?ref_id=<iamlasbrey>" target="_blank" rel="noopener noreferrer">
                     Python Books
                 <Small>Most comprehensive python book for new and experienced developers. Clcik here to Buy.</Small>
+                    </a>
                 </Anchor>
 
-                <Anchor id="pitch" href="https://background.zuri.team" target="_blank" rel="noopener noreferrer"> 
+                <Anchor id="pitch"> 
+                    <a href="https://background.zuri.team" target="_blank" rel="noopener noreferrer">
                     Background Check for Coders 
                 <Small>Not sure about who you are adding to your team? Lets run a background check for you. Click on this link now</Small>
+                </a>
                 </Anchor>
 
-                <Anchor id="book__design" href="https://books.zuri.team/design-rules" target="_blank" rel="noopener noreferrer"> 
+                <Anchor id="book__design"> 
+                    <a href="https://books.zuri.team/design-rules" target="_blank" rel="noopener noreferrer">
                     Design Books 
                 <Small>Downloand our all in one free design resource for new and experienced designers. </Small>
+                </a>
                 </Anchor>
 
                 <Anchor id="contact"> 

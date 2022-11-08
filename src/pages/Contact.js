@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { useState } from 'react'
-import {Navigate} from 'react-router-dom'
 
 const Container = styled.div`
     display: flex;
@@ -23,7 +22,7 @@ const Title = styled.h1`
 `
 
 const Description = styled.p`
-    font-size: 20px;
+    font-size: clapm(16px, 3vw, 20px);
     margin-bottom: 35px;
     color: #475467;
 `
@@ -199,14 +198,19 @@ const Contact = () => {
     const handleMessage=(e)=>{ setMessage(e.target.value)}
 
     
+
+    var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+
     const onSubmit=(e)=>{
         e.preventDefault()
-        if(!firstname)setFirstError(true)
+        if(!firstname && !regName.test(firstname))setFirstError(true)
         if(!lastname) setLastError(true)
         if(!email) setEmailError(true)
         if(!message) setMessageError(true)
 
-        alert(`Thanks for submitting`)
+        if(firstname && lastname && email && message){
+            alert(`Thanks for submitting`)
+        }
     }
 
     return (
@@ -286,8 +290,6 @@ const Contact = () => {
                         Send Message
                     </SendMessageDis>
                     }
-
-                    
 
                 </MyForm>
             </Element>
